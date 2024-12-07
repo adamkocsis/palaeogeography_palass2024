@@ -1,4 +1,4 @@
-# Deep-time Paleogeography in R
+# Deep-time Paleogeography in R <img src="doc/images/PalAss_Erlangen_2024.jpg" align="right" />
 
 Material for the workshop at the 2024 PalAss Annual Meeting in Erlangen
 
@@ -22,6 +22,6 @@ The material here is dependent on the following software (and their dependencies
   - `3_reconstruction_products.R`: Examples showing how to approach paleogeographic reconstructions that are based on specific tectonic reconstructions.
 3. After the last tutorial script, you are welcome to check out the code that is used to create this demonstration figure ([here](https://gplates.github.io/rgplates/#using-reconstructions)):
 
-![](https://github.com/GPlates/rgplates/raw/devel/pkgdown/assets/kimmeridgian_dinosaurs/export/temperature.png)
+![](doc/images/temperature.png)
 
 Additional tutorials can be found on the [website of `rgplates` package](https://gplates.github.io/rgplates).
