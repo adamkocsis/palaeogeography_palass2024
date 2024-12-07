@@ -1,10 +1,12 @@
 # Part I. Exploring tectonic models with 'rgplates' (and plotting with sf)
+# 2024-12-10, Erlangen
+# Ádám T. Kocsis
 
 # Attaching necessary extension packages
 library(rgplates) # 0.5.0 - you will also need the 'httr2' and the 'geojsonsf' packages!
 
 # setting working directory (or use `here`, if you like it)
-setwd("/mnt/sky/Dropbox/Teaching/Workshops/2024-12-09_rgplates_palass/")
+setwd("/mnt/sky/Dropbox/Teaching/Workshops/2024-12-09_rgplates_palass/palaeogeography_palass2024")
 
 ########################################----------------------------------------
 # A. Reconstruction of plates (using the GPlates Web Service) and plotting maps
@@ -13,7 +15,7 @@ setwd("/mnt/sky/Dropbox/Teaching/Workshops/2024-12-09_rgplates_palass/")
 # https://doi.org/10.1016/j.earscirev.2020.103477
 # x: feature collection to reconstruct
 # age: target age in Ma
-poly <- reconstruct(x="static_polygons", age=0)
+poly <- rgplates::reconstruct(x="static_polygons", age=0)
 poly
 
 # plotting
@@ -33,11 +35,11 @@ mplot <- function(...){
 mplot(poly$geometry) # default margins are a bit big...
 
 # A deep-time reconstruction
-plates200 <- reconstruct("static_polygons", age=200)
+plates200 <- rgplates::reconstruct("static_polygons", age=200)
 mplot(plates200$geometry, col="gray", border=NA)
 
 # present day boundaries on top
-moderncoast200 <- reconstruct("coastlines", age=200)
+moderncoast200 <- rgplates::reconstruct("coastlines", age=200)
 moderncoast200
 mplot(moderncoast200$geometry, add=TRUE)
 
@@ -45,7 +47,7 @@ mplot(moderncoast200$geometry, add=TRUE)
 sf::st_bbox(plates200)
 
 # background to plot the whole Earth
-edge <- mapedge()
+edge <- rgplates::mapedge()
 
 # the whole thing together
 mplot(edge, col="#1A6BB0")
@@ -62,7 +64,7 @@ mplot(moderncoast200$geometry, col="gray80", add=TRUE, border=NA)
 # B. Comparing different models
 
 # list of available models and feature collections
-data(gws)
+data(gws, package="rgplates")
 View(gws)
 
 ########################################----------------------------------------
@@ -72,10 +74,10 @@ View(gws)
 
 ########################################----------------------------------------
 
-# overlay two models MERDITH2021 vs. MULLER2022
+# Overlaying two models MERDITH2021 vs. MULLER2022
 # MULLER2022: (https://doi.org/10.5194/se-13-1127-2022)
-plates400 <- reconstruct("static_polygons", age=400)
-plates400mu <- reconstruct("static_polygons", age=400, model="MULLER2022")
+plates400 <- rgplates::reconstruct("static_polygons", age=400)
+plates400mu <- rgplates::reconstruct("static_polygons", age=400, model="MULLER2022")
 
 # A comparison
 mplot(edge)
@@ -85,12 +87,22 @@ mplot(plates400mu$geometry, col="#00FF0066", add=TRUE, border=NA)
 
 # Saving it as a png-file
 dir.create("export", showWarnings=FALSE)
-png("export/me-mu400.png")
+png("export/me-mu400.png", height=700, width=1400)
 	mplot(edge)
-	mplot(plates400$geometry, col="#FF0000dd", border=NA, add=TRUE)
-	mplot(plates400mu$geometry, col="#00FF0066", add=TRUE, border=NA)
+	mplot(plates400$geometry, col="#33358A88", border=NA, add=TRUE)
+	mplot(plates400mu$geometry, col="#69072088", add=TRUE, border=NA)
 dev.off()
 
+# With a bit of sf :)
+sf::sf_use_s2(FALSE)
+dir.create("export", showWarnings=FALSE)
+png("export/me-mu400_unified.png", height=700, width=1400)
+	mplot(edge)
+	mplot(sf::st_union(sf::st_make_valid(plates400$geometry)), col="#33358A88", border=NA, add=TRUE)
+	mplot(sf::st_union(sf::st_make_valid(plates400mu$geometry)), col="#69072088", add=TRUE, border=NA)
+dev.off()
+
+sf::sf_use_s2(TRUE)
 
 ################################################################################
 # C. Some more customization

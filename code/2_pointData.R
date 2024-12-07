@@ -1,4 +1,6 @@
-# Part II. Point data and some
+# Part II. Point data and fossil localities
+# 2024-12-10, Erlangen
+# Ádám T. Kocsis
 
 # Attaching necessary extension packages
 library(rgplates) # 0.5.0 - you will also need the 'httr2' and the 'geojsonsf' packages to be installed!
