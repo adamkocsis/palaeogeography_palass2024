@@ -1,4 +1,4 @@
-# Deep-time Paleogeography in R <img src="doc/images/PalAss_Erlangen_2024.jpg" align="right" />
+# Deep-time Paleogeography in R <img src="doc/images/PalAss_Erlangen_2024.jpg" align="right" width="200" />
 
 Material for the workshop at the 2024 PalAss Annual Meeting in Erlangen
 
