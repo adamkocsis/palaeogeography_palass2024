@@ -1,12 +1,12 @@
-# Deep-time Paleogeography in R <img src="doc/images/PalAss_Erlangen_2024.jpg" align="right" width="200" />
+# Deep-time Palaeogeography in R <img src="doc/images/PalAss_Erlangen_2024.jpg" align="right" width="200" />
 
-Material for the workshop at the 2024 PalAss Annual Meeting in Erlangen
+Material for the workshop at the [Annual Meeting of the Palaeontological Association (2024, Erlangen)](https://www.palass.org/meetings-events/annual-meeting/2024/annual-meeting-2024-erlangen-germany-overview)
 
 Ádám T. Kocsis and Elizabeth M. Dowding
 
 ## Depedendencies
 
-The material here is dependent on the following software (and their dependencies):
+The material here is dependent on the following software and their dependencies (checked with the given version numbers):
 - [R](https://www.r-project.org/) (v4.4.2)
 - Functions from the namespaces of these packages will be used:
   - [rgplates](https://gplates.github.io/rgplates) (v0.5.0): 
@@ -38,9 +38,8 @@ install.packages(c("rgplates", "terra", "chronosphere", "via", "sf", "geojsonsf"
 
 ![](doc/images/temperature.png)
 
-Additional tutorials can be found on the [website of `rgplates` package](https://gplates.github.io/rgplates).
 
 
 ## Additional external links
 
-- 
+- Additional tutorials about `rgplates` can be found on the [website of the package](https://gplates.github.io/rgplates).
