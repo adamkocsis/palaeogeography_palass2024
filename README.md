@@ -30,11 +30,11 @@ install.packages(c("rgplates", "terra", "chronosphere", "via", "sf", "geojsonsf"
 ## Instructions 
  
 1. Clone the repository or download it as a zip file and extract it.
-2. Examples are in the `code` directory, and they are numbered:
+2. Examples are in the `code` directory. Set the working directory to be the path of the `palaeogeography_palass2024` directory. The examples are numbered in the order in which you are suggested to check them out: 
   - `1_explore.R`: Exploring plate tectonic models with `rgplates`
   - `2_pointData.R`: Using point spatial data with tectonic models.
   - `3_reconstruction_products.R`: Examples showing how to approach paleogeographic reconstructions that are based on specific tectonic reconstructions.
-3. After the last tutorial script, you are welcome to check out the code that is used to create this demonstration figure ([here](https://gplates.github.io/rgplates/#using-reconstructions)):
+3. After the last tutorial script, you are welcome to check out the code that is used to create this demonstration figure below (see link at the end of [this paragraph](https://gplates.github.io/rgplates/#using-reconstructions)). 
 
 ![](doc/images/temperature.png)
 
