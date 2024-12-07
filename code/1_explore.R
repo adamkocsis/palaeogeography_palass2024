@@ -81,8 +81,8 @@ plates400mu <- rgplates::reconstruct("static_polygons", age=400, model="MULLER20
 
 # A comparison
 mplot(edge)
-mplot(plates400$geometry, col="#FF0000dd", border=NA, add=TRUE)
-mplot(plates400mu$geometry, col="#00FF0066", add=TRUE, border=NA)
+mplot(plates400$geometry, col="#33358A88", border=NA, add=TRUE)
+mplot(plates400mu$geometry, col="#69072088", add=TRUE, border=NA)
 
 
 # Saving it as a png-file

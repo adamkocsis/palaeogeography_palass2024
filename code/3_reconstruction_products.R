@@ -7,15 +7,27 @@ library(chronosphere)
 library(terra)
 library(via)
 
-# The data objects depend on a specific version of a tectonic model.
-# They are also made for specific reconstruction dates, that dictate the ages of point-reconstruction.
-
 setwd("/mnt/sky/Dropbox/Teaching/Workshops/2024-12-09_rgplates_palass/palaeogeography_palass2024/")
 
-################################################################################
-# Topographic reconstruction
+#' Plot maps with smaller margins
+#'
+#' The default plotting margins of sf are somewhat large.
+#'
+#' @param ... Arguments passed to the plot() function
+mplot <- function(...){
+	par(mar=c(0.25,0.25,0.25,0.25))
+	plot(...)
+}
 
-# 1. The Paleomap PaleoDEMs. These will be downloaded from Zenodo into the temporary directory.
+# the edge of the map
+edge <- mapedge()
+
+# The data objects depend on a specific version of a tectonic model.
+# They are also made for specific reconstruction dates, that dictate the ages of point-reconstruction.
+################################################################################
+# A) Topographic reconstruction
+
+# The Paleomap PaleoDEMs. These will be downloaded from Zenodo into the temporary directory.
 dats <- chronosphere::datasets()
 
 # the most up-to dat version
@@ -70,8 +82,8 @@ plot(dems["400"])
 points(paleoCoords, pch=3, col="red")
 
 ################################################################################
-# Other products work similarly
-pmData <- chronsophere::datasets("paleomap")
+# C) Other products work similarly
+pmData <- chronosphere::datasets("paleomap")
 
 # Paleomap paleocoastlines
 pc <- chronosphere::fetch("paleomap", "paleocoastlines", datadir="data/chronosphere")
@@ -79,11 +91,11 @@ pc
 
 # margin: 1400m isobath of DEMs
 # coast: 0m isobath of DEMs
-plot(pc["65","margin"], col="#87cef6", border=NA)
-plot(pc["65","coast"], col="#94391c", border=NA, add=TRUE)
+mplot(pc["65","margin"], col="#87cef6", border=NA)
+mplot(pc["65","coast"], col="#94391c", border=NA, add=TRUE)
 
 ################################################################################
-# Example climate model data
+# D) Example climate model data
 
 # 1) Original HadCM3L climate model output e.g. Valdes et al. 2021 (uses PALEOMAP model)
 # https://research-information.bris.ac.uk/ws/portalfiles/portal/301051066/Full_text_PDF_final_published_version_.pdf

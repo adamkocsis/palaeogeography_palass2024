@@ -144,7 +144,7 @@ emsianMerged <- merge(
 
 # 1. Plates
 # We need all the plate reconstructions for these target ages.
-# The age argumnet of reconstruct() is vectorized and will produce a list.
+# The age argument of reconstruct() is vectorized and will produce a list.
 lPlates <- reconstruct("static_polygons", age=mid)
 
 # result: a list of plate reconstructions
