@@ -133,7 +133,7 @@ plates400Proj <- sf::st_transform(plates400, epsg)
 
 # the same in mollweide
 mplot(edgeProj)
-mplot(plates400Proj$geometry, col="#94391cAA", border=NA, add=TRUE)
+mplot(plates400Proj$geometry, col="#94391c", border=NA, add=TRUE)
 
 
 ########################################----------------------------------------
