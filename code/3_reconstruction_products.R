@@ -1,6 +1,6 @@
 # Part III. Static reconstruction products.
 # 2024-12-10, Erlangen
-# Ádám T. Kocsis
+# Ádám T. Kocsis & Elizabeth Downding
 
 library(rgplates)
 library(chronosphere)

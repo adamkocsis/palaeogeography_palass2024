@@ -1,6 +1,6 @@
 # Part I. Exploring tectonic models with 'rgplates' (and plotting with sf)
 # 2024-12-10, Erlangen
-# Ádám T. Kocsis
+# Ádám T. Kocsis & Elizabeth Downding
 
 # Attaching necessary extension packages
 library(rgplates) # 0.5.0 - you will also need the 'httr2' and the 'geojsonsf' packages!
@@ -116,11 +116,11 @@ mplot(plates400$geometry, col="#94391cAA", border=NA, add=TRUE)
 mplot(edge, xlim=c(-115,-9), ylim=c(-50, 17))
 mplot(plates400$geometry, col="#94391cAA", border=NA, add=TRUE)
 
-# change the projection using sf::st_transfomr
-# Requires a projection idenfifier, either
+# change the projection using sf::st_transform
+# Requires a projection identifier, either
 # - EPSG ID -> https://epsg.io
-# - The long WKT (Well-known-text) format
-# - PROJ4 format
+# - The long WKT (Well-Known Text) format
+# - PROJ.4 string
 
 # The Mollweide projection
 epsg <- "ESRI:54009"
@@ -137,7 +137,7 @@ mplot(plates400Proj$geometry, col="#94391c", border=NA, add=TRUE)
 
 
 ########################################----------------------------------------
-# Exercise:
+# Home Exercise:
 # Plot A map for the Triassic-Jurassic boundary (199.5Ma)
 # using the Torsivk and Cocks (2017) model, in Robinson projection!
 ########################################----------------------------------------

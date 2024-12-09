@@ -1,6 +1,6 @@
 # Part II. Point data and fossil localities
 # 2024-12-10, Erlangen
-# Ádám T. Kocsis
+# Ádám T. Kocsis & Elizabeth Downding
 
 # Attaching necessary extension packages
 library(rgplates) # 0.5.0 - you will also need the 'httr2' and the 'geojsonsf' packages to be installed!
@@ -48,6 +48,27 @@ mplot(plates300$geometry, col="white", border=NA, add=TRUE)
 points(cities300, col="red", pch=3)
 mplot(edge, border="gray", add=TRUE)
 
+########################################----------------------------------------
+# The same projected to Mollweide:
+epsg <- "ESRI:54009"
+
+# the map
+edgeProj <- sf::st_transform(edge, epsg)
+plates300Proj <- sf::st_transform(plates300, epsg)
+
+# the points need to projected too! For this, we need to
+# make them spatial points (sf)!
+cities300sf <- st_as_sf(as.data.frame(cities300), crs="WGS84", coords=c("paleolong", "paleolat"))
+
+# then project
+cities300Proj <- sf::st_transform(cities300sf, epsg)
+
+# and finally plot - same as above, only projected
+mplot(edgeProj, col="gray", border=NA)
+mplot(plates300Proj$geometry, col="white", border=NA, add=TRUE)
+points(cities300Proj, col="red", pch=3)
+mplot(edgeProj, border="gray", add=TRUE)
+
 
 ################################################################################
 # B. Fossil occurrences from the Paleobiology Database (Emsian stage)
@@ -89,7 +110,16 @@ mplot(platesEmsian$geometry, col="white", border=NA, add=TRUE)
 points(paleoCoords, col="red", pch=3)
 mplot(edge, border="gray", add=TRUE)
 
-# missing values are there because 'validtime=TRUE'!
+# missing values are there because the default 'validtime=TRUE'!
+# This occurrs because of misalignment between the model, the target age and the coordinates.
+# The points are rotated based on what polygon fall on, and every polygon has a valid FROM-TO
+# duration in the model. If you want to reconstruct a polygon beyond its valid time duration,
+# it disappears from model. The points by default inherit this age, so if you rotate
+# them beyond their formal valid time, they disappear (produce NAs).
+# reconstructing with validtime=FALSE, will switch this off, forcing the points to be part of
+# the reconstruction.
+# Be very mindful of this, as it can lead to totally wrong results if you allow such points
+# to be reconstructed way beyond the valid time of the plate they are sitting on!
 
 # Data can be merged back with occurrences for statistical analyses
 emsianMerged <- merge(
@@ -97,6 +127,7 @@ emsianMerged <- merge(
 	emsianCollections[, c("collection_no", "paleolong", "paleolat")], # the necessary collection information
 	by="collection_no",
 	all=TRUE)
+
 
 
 
