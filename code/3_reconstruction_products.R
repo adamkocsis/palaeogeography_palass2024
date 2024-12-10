@@ -50,7 +50,16 @@ names(dems)
 plot(dems["90"])
 
 # and offline version of the paleomap model
-mod <- chronosphere::fetch("paleomap", "model",datadir="data/chronosphere")
+pathToRotations <- "data/PALEOMAP/PALEOMAP_PlateModel.rot"
+pathToPolygons <- "data/PALEOMAP/PALEOMAP_PlatePolygons.gpml"
+
+mod <- rgplates::platemodel(
+	features=c("static_polygons"=pathToPolygons),
+	rotation=pathToRotations
+)
+
+# the same as
+# mod <- chronosphere::fetch("paleomap", "model", ver="v3-GPlates",datadir="data/chronosphere")
 mod
 
 # if GPlates is installed, these files can be used for reconstruction in rgplates!
