@@ -38,7 +38,7 @@ dems
 dir.create("data/chronosphere", showWarnings=FALSE)
 
 # the dems
-dems <- chronosphere::fetch(src="paleomap", ser="dem", datadir="data/chronosphere")
+dems <- chronosphere::fetch(src="paleomap", ser="dem", ver="20180801", datadir="data/chronosphere")
 
 # available ages
 names(dems)
