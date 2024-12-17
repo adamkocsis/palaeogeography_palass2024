@@ -2,7 +2,9 @@
 
 Material for the workshop at the [Annual Meeting of the Palaeontological Association (2024, Erlangen)](https://www.palass.org/meetings-events/annual-meeting/2024/annual-meeting-2024-erlangen-germany-overview)
 
-Ádám T. Kocsis and Elizabeth M. Dowding
+*Ádám T. Kocsis and Elizabeth M. Dowding*
+
+**2024-12-10**
 
 See `doc/DeepTimePRPalass.pptx` for the slides. You can also access the slides on [Google](https://docs.google.com/presentation/d/1OkxWrQyLD_bGTg43Vcx6f8v8h9G-fm-2/edit?usp=drive_link&ouid=112055272057917681515&rtpof=true&sd=true). 
 
