@@ -2,9 +2,9 @@
 
 Material for the workshop at the [Annual Meeting of the Palaeontological Association (2024, Erlangen)](https://www.palass.org/meetings-events/annual-meeting/2024/annual-meeting-2024-erlangen-germany-overview)
 
-*Ádám T. Kocsis and Elizabeth M. Dowding*
+*Ádám T. Kocsis and Elizabeth M. Dowding* (2024-12-10)
 
-**2024-12-10**
+
 
 See `doc/DeepTimePRPalass.pptx` for the slides. You can also access the slides on [Google](https://docs.google.com/presentation/d/1OkxWrQyLD_bGTg43Vcx6f8v8h9G-fm-2/edit?usp=drive_link&ouid=112055272057917681515&rtpof=true&sd=true). 
 
@@ -35,7 +35,7 @@ install.packages(c("rgplates", "terra", "chronosphere", "via", "sf", "geojsonsf"
  
 1. Clone the repository or download it as a zip file and extract it.
 2. Examples are in the `code` directory. Set the working directory to be the path of the `palaeogeography_palass2024` directory. The examples are numbered in the order in which you are suggested to check them out: 
-  - `1_explore.R`: Exploring plate tectonic models with `rgplates`
+  - `1_explore.R`: Exploring plate tectonic models with `rgplates`.
   - `2_pointData.R`: Using point spatial data with tectonic models.
   - `3_reconstruction_products.R`: Examples showing how to approach paleogeographic reconstructions that are based on specific tectonic reconstructions.
 3. After the last tutorial script, you are welcome to check out the code that is used to create this demonstration figure below (see link at the end of [this paragraph](https://gplates.github.io/rgplates/#using-reconstructions)). 
